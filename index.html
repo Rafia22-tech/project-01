@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jannatul Rafia | Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(236,72,153,0.15), transparent 25%),
+    radial-gradient(circle at top right, rgba(139,92,246,0.15), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(59,130,246,0.12), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 25%),
+    #f9fafb;
+  overflow-x: hidden;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Floating Background Effect */
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -200px;
+  background: rgba(236,72,153,0.12);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  right: -200px;
+  background: rgba(139,92,246,0.12);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+/* Project Card Hover */
+.project-card,
+.bg-white {
+  transition: all 0.35s ease;
+}
+
+.bg-white:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ec4899, #8b5cf6);
+  border-radius: 20px;
+}
+/* Section spacing */
+section{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background blobs */
+section::before{
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(236,72,153,0.08);
+  top: -100px;
+  left: -100px;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+section::after{
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(139,92,246,0.08);
+  bottom: -100px;
+  right: -100px;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Content always above blobs */
+section > div{
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards */
+.glass,
+.bg-white{
+  transition: all .35s ease;
+}
+
+.glass:hover,
+.bg-white:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+}
+
+/* Hero image animation */
+@keyframes float {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-12px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.rounded-full{
+  animation: float 4s ease-in-out infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="fixed w-full top-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <h1 class="text-xl md:text-2xl font-bold text-pink-600">
+      Jannatul Rafia
+    </h1>
+
+    <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
+      <a href="#home" class="hover:text-pink-500">Home</a>
+      <a href="#about" class="hover:text-pink-500">About</a>
+      <a href="#projects" class="hover:text-pink-500">Projects</a>
+      <a href="#contact" class="hover:text-pink-500">Contact</a>
+    </nav>
+
+    <div class="hidden md:flex gap-3">
+      <a href="https://github.com/Rafia22-tech" target="_blank"
+        class="px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700">
+        GitHub
+      </a>
+    </div>
+
+    <button id="menuBtn" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+    class="hidden flex-col bg-white shadow-md px-6 py-4 space-y-3 md:hidden">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/Rafia22-tech" target="_blank">GitHub</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home"
+  class="min-h-screen flex items-center pt-24 bg-gradient-to-r from-pink-50 to-purple-50">
+
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+    <div data-aos="fade-right">
+      <span class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold">
+        Frontend Developer
+      </span>
+
+      <h1 class="text-4xl md:text-6xl font-bold mt-6 leading-tight">
+        Hi, I'm <span class="gradient-text">Jannatul Rafia</span>
+      </h1>
+
+      <p class="text-gray-600 mt-6 text-base md:text-lg">
+        I create beautiful, responsive and modern websites using HTML, Tailwind CSS and JavaScript.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="#projects"
+          class="px-7 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold">
+          View My Work
+        </a>
+
+        <a href="#contact"
+          class="px-7 py-3 rounded-full border border-pink-400 text-pink-500">
+          Contact Me
+        </a>
+
+        <a href="https://github.com/Rafia22-tech" target="_blank"
+          class="px-7 py-3 rounded-full bg-gray-900 text-white font-semibold">
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-center" data-aos="fade-left">
+      <div class="w-64 md:w-80 h-64 md:h-80 rounded-full p-2 bg-gradient-to-r from-pink-500 to-purple-500">
+        <img src="my pic.jpeg"
+          class="w-full h-full rounded-full object-cover border-8 border-white">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- TITLE -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-4xl font-bold">About Me</h2>
+      <div class="w-24 h-1 bg-pink-500 mx-auto mt-3 rounded-full"></div>
+      <p class="text-gray-500 mt-4 text-sm md:text-base">
+        Get to know more about who I am and what I do
+      </p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- TEXT SIDE -->
+      <div class="text-left" data-aos="fade-right">
+
+        <h3 class="text-3xl font-bold mb-6 text-gray-800">
+          Passionate Frontend Web Developer
+        </h3>
+
+        
+
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          I enjoy turning ideas into real-world digital products using HTML,
+          Tailwind CSS, and JavaScript. I continuously learn new technologies to
+          improve my skills and build better projects.
+        </p>
+
+        <!-- SKILLS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <div class="glass p-5 rounded-2xl shadow text-left">
+            <h4 class="font-bold text-lg">HTML</h4>
+            <p class="text-gray-500 text-sm">Semantic structure & accessibility</p>
+          </div>
+
+          <div class="glass p-5 rounded-2xl shadow text-left">
+            <h4 class="font-bold text-lg">Tailwind CSS</h4>
+            <p class="text-gray-500 text-sm">Modern responsive UI design</p>
+          </div>
+
+          <div class="glass p-5 rounded-2xl shadow text-left">
+            <h4 class="font-bold text-lg">JavaScript</h4>
+            <p class="text-gray-500 text-sm">Interactive & dynamic features</p>
+          </div>
+
+          <div class="glass p-5 rounded-2xl shadow text-left">
+            <h4 class="font-bold text-lg">Responsive Design</h4>
+            <p class="text-gray-500 text-sm">Mobile-first development approach</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 bg-gray-50">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="uppercase text-pink-500 font-semibold">Work</p>
+      <h2 class="text-5xl font-bold mt-3">Featured Projects</h2>
+      <div class="w-24 h-1 bg-pink-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Project 1 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 duration-300">
+        <div class="h-52 bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center text-5xl font-bold text-white">
+          EV
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold">Eventify</h3>
+          <p class="text-gray-600 mt-3">Event management website UI.</p>
+
+          <div class="flex gap-2 mt-4 flex-wrap">
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">HTML</span>
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Tailwind</span>
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">JS</span>
+          </div>
+
+          <a href="https://github.com/Rafia22-tech" target="_blank"
+            class="mt-5 inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-5 py-2 rounded-full">
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 duration-300">
+        <div class="h-52 bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center text-5xl font-bold text-white">
+          SG
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold">Snake Game</h3>
+          <p class="text-gray-600 mt-3">C# game project.</p>
+
+          <a href="https://www.mooict.com/c-tutorial-create-a-classic-snake-game-in-visual-studio/"
+            target="_blank"
+            class="mt-5 inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-5 py-2 rounded-full">
+            Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 (NEW ADDED) -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 duration-300">
+        <div class="h-52 bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center text-4xl font-bold text-white">
+          TM API
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold">Task Manager API</h3>
+          <p class="text-gray-600 mt-3">
+            REST API built with Node.js, Express & MongoDB for managing tasks.
+          </p>
+
+          <div class="flex gap-2 mt-4 flex-wrap">
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Node.js</span>
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Express</span>
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">MongoDB</span>
+          </div>
+
+          <a href="https://github.com/Rafia22-tech/task-manager-api"
+            target="_blank"
+            class="mt-5 inline-block bg-gray-900 text-white px-5 py-2 rounded-full hover:bg-gray-700">
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+
+    <h2 class="text-5xl font-bold">Contact Me</h2>
+    <p class="text-gray-600 mt-4">Let's connect</p>
+
+    <form class="mt-12 bg-gray-50 p-8 rounded-3xl shadow-lg grid gap-5">
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <input type="text" placeholder="First Name" class="p-4 border rounded-xl">
+        <input type="text" placeholder="Last Name" class="p-4 border rounded-xl">
+      </div>
+
+      <input type="text" placeholder="Contact Number" class="p-4 border rounded-xl">
+      <input type="email" placeholder="Email" class="p-4 border rounded-xl">
+      <textarea rows="5" placeholder="Message" class="p-4 border rounded-xl"></textarea>
+
+      <button class="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-4 rounded-xl">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white py-10">
+  <div class="text-center">
+
+    <h2 class="text-2xl font-bold gradient-text">Jannatul Rafia</h2>
+
+    <div class="flex justify-center gap-6 mt-6 text-2xl">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com/Rafia22-tech"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <p class="text-gray-400 mt-6">© 2025 All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 1000, once: true });
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+  mobileMenu.classList.toggle("flex");
+});
+</script>
+
+</body>
+</html>
